@@ -1,7 +1,7 @@
-# WebDev-Gang 
+# WebDev-Crew 
 
 Group project for module **CTEC2712 Web Application Development**  
-Worth 60% of the module mark.
+
 
 ## Team members
 - Nabin Karki
@@ -15,8 +15,7 @@ Prospective students can browse courses, view modules & staff, and register inte
 Administrators can manage programmes, modules, publish status and view mailing lists.
 
 ## Technologies
-- Frontend: HTML, CSS, JavaScript, Bootstrap 5
+- Frontend: HTML, CSS, JavaScript
 - Backend: PHP
 - Database: MySQL 
 
-## Folder structure
