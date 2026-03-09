@@ -4,10 +4,10 @@ Group project for module **CTEC2712 Web Application Development**
 
 
 ## Team members
-- Nabin Karki
-- Simran Gautam
+- Roshani Sha
 - Malika Bishwokarma
-- Roshani Shah
+- Simran Gautam
+- Nabin Karki
 
 ## Project description
 Web application for a UK university to showcase undergraduate and postgraduate programmes.  
