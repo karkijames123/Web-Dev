@@ -4,7 +4,7 @@ Group project for module **CTEC2712 Web Application Development**
 
 
 ## Team members
-- Roshani Sha
+- Dibya Roshni Sahu
 - Malika Bishwokarma
 - Simran Gautam
 - Nabin Karki
