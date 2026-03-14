@@ -1,9 +1,0 @@
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-@media (max-width: 768px) {
-    .card {
-        margin-bottom: 20px;
-    }
-}
