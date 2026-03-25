@@ -1,4 +1,3 @@
-
 <?php
 $pageTitle = 'Admin Login'; // Page title
 require '../includes/header.php'; // Include header
