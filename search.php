@@ -49,13 +49,40 @@ if ($query !== '') {
                 <?php else: ?>
                     <div class="row g-4">
                         <?php foreach ($results as $prog):
-                            $image = !empty($prog['Image']) ? 'uploads/' . $prog['Image'] : 'https://via.placeholder.com/400x250?text=' . urlencode($prog['ProgrammeName']);
+                            // Get image for each programme
+                            $image = '';
+
+                            // Check if image exists in database
+                            if (!empty($prog['Image']) && file_exists('uploads/' . $prog['Image'])) {
+                                $image = 'uploads/' . $prog['Image'];
+                            } else {
+                                // Map programme names to image files
+                                $imageMap = [
+                                    'BSc Computer Science' => 'BSc Computer Science.jpg',
+                                    'BSc Software Engineering' => 'BSc Software Engineering.jpg',
+                                    'BSc Artificial Intelligence' => 'BSc Artificial Intelligence.jpg',
+                                    'BSc Cyber Security' => 'BSc Cyber Security.jpg',
+                                    'BSc Data Science' => 'BSc Data Science.jpg',
+                                    'MSc Machine Learning' => 'MSc Machine Learning.jpg',
+                                    'MSc Cyber Security' => 'MSc Cyber Security.jpg',
+                                    'MSc Data Science' => 'MSc Data Science.jpg',
+                                    'MSc Artificial Intelligence' => 'MSc Artificial Intelligence.jpg',
+                                    'MSc Software Engineering' => 'MSc Software Engineering.jpg',
+                                ];
+
+                                if (isset($imageMap[$prog['ProgrammeName']]) && file_exists('uploads/' . $imageMap[$prog['ProgrammeName']])) {
+                                    $image = 'uploads/' . $imageMap[$prog['ProgrammeName']];
+                                } else {
+                                    // Fallback to placeholder with programme name
+                                    $image = 'https://via.placeholder.com/400x250/667eea/ffffff?text=' . urlencode($prog['ProgrammeName']);
+                                }
+                            }
                         ?>
                             <div class="col-md-6">
                                 <div class="card h-100 shadow-sm">
                                     <div class="row g-0">
                                         <div class="col-md-4">
-                                            <img src="<?= e($image) ?>" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="<?= e($prog['ProgrammeName']) ?>">
+                                            <img src="<?= e($image) ?>" class="img-fluid rounded-start h-100" style="object-fit: cover; min-height: 150px;" alt="<?= e($prog['ProgrammeName']) ?>">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">

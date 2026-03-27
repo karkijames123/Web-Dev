@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 $pageTitle = 'Admin Login'; // Page title
 require '../includes/header.php'; // Include header
@@ -65,4 +63,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Form submitted
 </div>
 
 <?php require '../includes/footer.php'; ?> <!-- Include footer -->
->>>>>>> 5c7457e3f058bf26cf9507b3fd65d2de35bb490a
