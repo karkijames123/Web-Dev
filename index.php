@@ -1,10 +1,14 @@
 <?php
+// Set page title for the browser tab
 $pageTitle = 'Available Programmes';
 require 'includes/header.php';
 
+// Get selected level from URL (if any)
 $level = $_GET['level'] ?? '';
+// Fetch all programme levels from database
 $levels = $pdo->query("SELECT * FROM Levels")->fetchAll();
 
+// SQL query to get published programmes with level and leader info
 $sql = "SELECT p.*, l.LevelName, s.Name AS LeaderName 
         FROM Programmes p 
         JOIN Levels l ON p.LevelID = l.LevelID 
@@ -13,19 +17,24 @@ $sql = "SELECT p.*, l.LevelName, s.Name AS LeaderName
 
 $params = [];
 
+// Add level filter if selected
 if ($level !== '') {
     $sql .= " AND p.LevelID = ?";
     $params[] = (int)$level;
 }
+// Order programmes alphabetically
 $sql .= " ORDER BY p.ProgrammeName";
 
+// Execute the query
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $programmes = $stmt->fetchAll();
 
+// Function to get image for each programme
 function getProgrammeImage($programmeName)
 {
     $uploadDir = 'uploads/';
+    // Map programme names to their image files
     $imageMap = [
         'BSc Computer Science' => 'BSc Computer Science.jpg',
         'BSc Software Engineering' => 'BSc Software Engineering.jpg',
@@ -39,6 +48,7 @@ function getProgrammeImage($programmeName)
         'MSc Software Engineering' => 'MSc Software Engineering.jpg',
     ];
 
+    // Return image if exists, otherwise placeholder
     if (isset($imageMap[$programmeName])) {
         $imagePath = $uploadDir . $imageMap[$programmeName];
         if (file_exists($imagePath)) {
@@ -49,6 +59,7 @@ function getProgrammeImage($programmeName)
 }
 ?>
 
+<!-- Hero Section with Welcome Message and Search -->
 <div class="hero-section">
     <div class="container text-center">
         <h1>Welcome to <?= e(SITE_NAME) ?></h1>
@@ -65,6 +76,7 @@ function getProgrammeImage($programmeName)
 </div>
 
 <div class="container">
+    <!-- Filter Section -->
     <div class="mb-4">
         <h2>Our Programmes</h2>
         <form method="GET">
@@ -79,6 +91,7 @@ function getProgrammeImage($programmeName)
         </form>
     </div>
 
+    <!-- Programme Cards Grid -->
     <?php if (empty($programmes)): ?>
         <div class="alert alert-info">No programmes found matching your criteria.</div>
     <?php else: ?>
@@ -87,10 +100,12 @@ function getProgrammeImage($programmeName)
                 $cardImage = getProgrammeImage($prog['ProgrammeName']);
             ?>
                 <div class="programme-card">
+                    <!-- Programme Image -->
                     <div class="card-image">
                         <img src="<?= e($cardImage) ?>" alt="<?= e($prog['ProgrammeName']) ?>">
                         <span class="level-badge"><?= e($prog['LevelName']) ?></span>
                     </div>
+                    <!-- Programme Content -->
                     <div class="card-content">
                         <h3><?= e($prog['ProgrammeName']) ?></h3>
                         <p><?= truncate($prog['Description'], 100) ?></p>
