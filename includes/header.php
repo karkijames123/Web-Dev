@@ -1,16 +1,3 @@
-
-1 of 2,505
-updated files
-Inbox
-
-Nabin Karki
-Attachments
-12:22 PM (7 minutes ago)
-to me
-
-
- 5 Attachments
-  •  Scanned by Gmail
 <?php
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/db.php';
