@@ -6,7 +6,8 @@ define('ADMIN_EMAIL', 'admin@university.com');
 define('UPLOAD_DIR', __DIR__ . '/../uploads/');
 define('MAX_FILE_SIZE', 2097152);
 
-// Error reporting
+
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
