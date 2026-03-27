@@ -18,7 +18,6 @@ This application allows prospective students to browse available programmes, vie
 | MySQL / MariaDB | Database storage |
 | HTML5 / CSS3 | Structure and styling |
 | JavaScript | Client-side interactivity |
-| Bootstrap 5 | Responsive UI framework |
 | Font Awesome | Icons |
 | Chart.js | Admin dashboard charts |
 
@@ -33,3 +32,9 @@ This application allows prospective students to browse available programmes, vie
 ```bash
 git clone https://github.com/karkijames123/Web-Dev.git
 cd Web-Dev
+
+## Admin Login
+
+- **URL:** http://localhost/Web-Dev/admin/
+- **Username:** admin
+- **Password:** password123
