@@ -34,7 +34,5 @@ git clone https://github.com/karkijames123/Web-Dev.git
 cd Web-Dev
 
 ## Admin Login
-
-- **URL:** http://localhost/Web-Dev/admin/
 - **Username:** admin
 - **Password:** admin123
