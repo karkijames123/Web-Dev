@@ -37,4 +37,4 @@ cd Web-Dev
 
 - **URL:** http://localhost/Web-Dev/admin/
 - **Username:** admin
-- **Password:** password123
+- **Password:** admin123
